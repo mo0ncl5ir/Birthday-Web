@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700&family=Nunito:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <title>Birthday Surprise 🤍</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Nunito', sans-serif;
+        }
+
+        body {
+            margin: 0;
+            background: linear-gradient(#bdeaff, #ffffff);
+            color: #164d73;
+            overflow-x: hidden;
+        }
+
+
+        .container {
+            padding: 25px;
+        }
+
+
+        .card {
+            background: #ffffffdd;
+            max-width: 650px;
+            margin: 30px auto;
+            padding: 25px;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px #0002;
+            text-align: center;
+        }
+
+
+        .hidden {
+            display: none;
+        }
+
+
+        h1,
+        h2 {
+            font-family: 'Baloo 2', cursive;
+            color: #168bd0;
+            font-weight: 700;
+        }
+
+
+        .surat-title {
+            font-family: 'Baloo 2', cursive;
+            font-size: 42px;
+            color: #168bd0;
+            text-shadow: 2px 3px 10px #9edfff;
+        }
+
+
+        p {
+            line-height: 1.9;
+            font-weight: 600;
+        }
+
+
+        button {
+            background: #168bd0;
+            color: white;
+            border: 0;
+            padding: 14px 25px;
+            border-radius: 30px;
+            cursor: pointer;
+            margin: 5px;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 800;
+        }
+
+
+        img {
+            width: 100%;
+            border-radius: 20px;
+        }
+
+
+        .confetti {
+            position: fixed;
+            top: -30px;
+            font-size: 30px;
+            animation: jatuh 5s linear infinite;
+            z-index: 10;
+        }
+
+
+        @keyframes jatuh {
+
+            to {
+                transform: translateY(110vh) rotate(360deg);
+            }
+
+        }
+
+
+        .gifts {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+
+        .gift {
+            border: 3px solid transparent;
+            padding: 10px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+
+        .selected {
+            border-color: #168bd0;
+            background: #dff5ff;
+        }
+
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 7px;
+            border-radius: 12px;
+            border: 1px solid #aaa;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 600;
+        }
+
+
+        .warning {
+            background: #083455;
+            color: white;
+            padding: 25px;
+            border-radius: 25px;
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <audio id="music" loop>
+        <source src="music/love.mp3">
+    </audio>
+
+
+    <div class="container">
+
+
+        <div class="card" id="opening">
+
+            <h1 class="surat-title">
+                🌊 Ada surat kecil buat kamu 🤍
+            </h1>
+
+
+            <button onclick="bukaSurat()">
+                tekan untuk buka surat 💌
+            </button>
+
+        </div>
+
+
+        <div class="card hidden" id="surat">
+
+
+            <h1>
+                🎉 HAPPY BIRTHDAY SAYANGKUU 🎉
+            </h1>
+
+
+            <p>
+
+                CINTAAKUU PACARRKUUU &lt;33
+
+                <br><br>
+
+                selamat menempuh hidup di umur kamu yang sudah 19 tahun iniii 🤍
+
+                <br><br>
+
+                sehat selaluu sayanggg, bertambah rezeki nyaa,
+                semoga cepat menemukan kerjaan yang cocok untuk kamuuu.
+
+                <br><br>
+
+                I love youu sayanggg, terimakasih ya sayangg
+                kamu sudah menjadi bagian dari hidup aku.
+
+                <br><br>
+
+                aku mau dan berharap kita selalu sama sama terus sayanggg.
+
+                <br><br>
+
+                masalah atau apapun dalam hubungan itu wajarr,
+                kita saling intropeksi diri dan berubah jadi lebih baik.
+
+                <br><br>
+
+                aku seneng dan sangat berterimakasih karna telah mengenal kamu.
+
+                <br><br>
+
+                setelah semua yang sudah dilewati akhirnya aku bersama kamu.
+
+                <br><br>
+
+                i love you than anything in this world sayanggg!!! &gt;&lt;
+
+            </p>
+
+
+            <img src="img/kita.jpeg">
+
+
+            <br>
+
+
+            <button onclick="bukaHadiah()">
+                buka kejutan 🌊
+            </button>
+
+
+        </div>
+        <div class="card hidden" id="hadiah">
+
+            <h2>
+                pilih hadiah kamu 🎁
+            </h2>
+
+
+            <div class="gifts">
+
+
+                <div class="gift" onclick="pilih(this,'Baju 1')">
+                    <img src="img/baju1.jpeg">
+                </div>
+
+
+                <div class="gift" onclick="pilih(this,'Baju 2')">
+                    <img src="img/baju2.jpeg">
+                </div>
+
+
+                <div class="gift" onclick="pilih(this,'Baju 3')">
+                    <img src="img/baju3.jpeg">
+                </div>
+
+
+                <div class="gift" onclick="pilih(this,'Baju 4')">
+                    <img src="img/baju4.jpeg">
+                </div>
+
+
+            </div>
+
+
+            <br>
+
+
+            <form onsubmit="kirim(event)">
+
+
+                <input id="size" placeholder="size wushclub biasanya apa?">
+
+                <input id="tb" placeholder="tinggi badan (cm)">
+
+                <input id="bb" placeholder="berat badan (kg)">
+
+                <input id="ld" placeholder="lingkar dada (cm)">
+
+
+                <button>
+                    kirim pilihanku 💌
+                </button>
+
+            </form>
+
+
+
+            <button type="button" onclick="tolakHadiah()" style="background:#8aaec4">
+
+                aku nggak mau hadiah 😜
+
+            </button>
+
+
+
+            <div id="tolak" class="hidden">
+
+                <h1>😜😜😜</h1>
+
+                <p>
+                    wlee, aku mau kasih kamu sesuatu sayangg 🤍
+                    <br>
+                    jangan ditolak yaa pliss hehe
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="card hidden" id="akhir">
+
+
+            <h1>
+                💌 pesan penting buat kamu
+            </h1>
+
+
+            <p>
+
+                aku punya satu pesan kecil yang penting banget buat kamu 🤍
+
+                <br><br>
+
+                aku mau kamu jaga diri kamu baik-baik ya sayang.
+
+                <br><br>
+
+                aku serius soal ini...
+                tolong coba kurangi dan berhenti merokok.
+
+                <br><br>
+
+                bukan karena aku mau ngatur kamu,
+                tapi karena aku sayang dan aku peduli sama kesehatan kamu.
+
+            </p>
+
+
+            <h2>
+                janji sama aku? 🤍
+            </h2>
+
+
+            <button onclick="iyaRokok()">
+                iya aku coba kurangin 🤍
+            </button>
+
+
+            <button onclick="tidakRokok()" style="background:#777">
+                gamau 😤
+            </button>
+
+
+
+            <div id="marah" class="hidden">
+
+                <h1>
+                    😠😠😠
+                </h1>
+
+                <p>
+                    ih sayang jangan bandel 😭
+                    aku marah nih
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <script>
+
+
+        let pilihan = "";
+
+
+
+        function buatConfetti() {
+
+            let emoji = [
+                "🎉",
+                "🎊",
+                "❤",
+                "💐",
+                "🤍",
+                "✨"
+            ];
+
+
+            for (let i = 0; i < 50; i++) {
+
+                let c = document.createElement("div");
+
+                c.className = "confetti";
+
+                c.innerHTML =
+                    emoji[Math.floor(Math.random() * emoji.length)];
+
+
+                c.style.left = Math.random() * 100 + "vw";
+
+
+                c.style.animationDelay = Math.random() * 3 + "s";
+
+
+                document.body.appendChild(c);
+
+            }
+
+        }
+
+
+
+
+        function bukaSurat() {
+
+            document.getElementById("music").play();
+
+            buatConfetti();
+
+
+            document.getElementById("opening")
+                .classList.add("hidden");
+
+
+            document.getElementById("surat")
+                .classList.remove("hidden");
+
+        }
+
+
+
+
+
+        function bukaHadiah() {
+
+            document.getElementById("hadiah")
+                .classList.remove("hidden");
+
+        }
+
+
+
+
+
+        function pilih(el, nama) {
+
+            document.querySelectorAll(".gift")
+                .forEach(x => x.classList.remove("selected"));
+
+
+            el.classList.add("selected");
+
+
+            pilihan = nama;
+
+        }
+
+
+
+
+
+        function tolakHadiah() {
+
+            document.getElementById("tolak")
+                .classList.remove("hidden");
+
+        }
+
+
+
+
+
+        function kirim(e) {
+
+            e.preventDefault();
+
+
+            let size = document.getElementById("size").value;
+            let tb = document.getElementById("tb").value;
+            let bb = document.getElementById("bb").value;
+            let ld = document.getElementById("ld").value;
+
+
+
+            if (!pilihan) {
+
+                alert("pilih bajunya dulu 🤍");
+                return;
+
+            }
+
+
+
+            if (!size || !tb || !bb || !ld) {
+
+                alert("isi ukurannya dulu ya 🤍");
+                return;
+
+            }
+
+
+
+            let pesan =
+
+                `aku pilih ${pilihan}
+
+size:
+${size}
+
+tb:
+${tb}
+
+bb:
+${bb}
+
+lingkar dada:
+${ld}`;
+
+
+
+            window.open(
+                "https://wa.me/+6285719421969?text=" + encodeURIComponent(pesan)
+            );
+
+
+
+            document.getElementById("akhir")
+                .classList.remove("hidden");
+
+
+            document.getElementById("akhir")
+                .scrollIntoView({
+
+                    behavior: "smooth"
+
+                });
+
+
+        }
+
+
+
+
+        function iyaRokok() {
+
+            document.getElementById("marah")
+                .classList.add("hidden");
+
+            alert("makasih sayang 🤍");
+
+        }
+
+
+
+
+        function tidakRokok() {
+
+            document.getElementById("marah")
+                .classList.remove("hidden");
+
+        }
+
+
+
+    </script>
+
+
+</body>
+
+</html>
